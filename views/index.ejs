@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  .positioned {
+    padding: 100px;
+    background-color: <%= senData.style.backgroundColor%>
+  }
+  </style>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+  <title>Auto Table rendering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="container">
+<div class="row positioned">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+<% for (var i=0; i < senData.tops.length; i++) { %>
+  <th><%= senData.tops[i] %></th>
+  <% } %>
+        </tr>
+      </thead>
+      <tbody>
+
+          <% for (var j=0; j < senData.data.length; j++) { %>
+            <tr>
+                <% for (var k=0; k < senData.tops.length; k++) { %>
+                  <td><%= senData.data[j][senData.tops[k]] %></td>
+                  <% } %>
+            </tr>
+          <% } %>
+      </tbody>
+    </table>  
+  </div>
+</div>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+</html>
